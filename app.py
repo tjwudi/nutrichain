@@ -22,6 +22,13 @@ def sanity_check_eat24_get_menu():
     ))
 
 
+@app.route('/sanity_check/eat24/get_all_restaurants')
+def sanity_check_eat24_get_all_restaurants():
+    return jsonify(eat24.get_all_restaurants(
+        request.args.get('search_location'),
+        request.args.get('search_zipcode'),
+    ))
+
 @app.route('/')
 def home():
     env = {
