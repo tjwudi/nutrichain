@@ -20,7 +20,8 @@ class FrontPage extends React.Component {
 		});
 		return (
 				<div>
-					<h4>Your current preference is: {this.state.userPreference}</h4>
+					<h4>Your current preference is:</h4>
+					<p className="selected-pref">{this.state.userPreference ? this.state.userPreference : "Plz select below"}</p>
 					<p>Please set your preferences:</p>
 					<ul className="preferences-container">
 						{preferences}
