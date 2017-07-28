@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import request
 from flask import jsonify
+from flask import render_template
 
 app = Flask(__name__)
 
@@ -19,3 +20,11 @@ def sanity_check_eat24_get_menu():
         request.args.get('restaurant_id'),
         request.args.get('menu_id'),
     ))
+
+
+@app.route('/')
+def home():
+    env = {
+        'app_display_name': 'Yelp Nutrichain',
+    }
+    return render_template('home.html', **env)
