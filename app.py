@@ -2,8 +2,9 @@ from flask import Flask
 from flask import request
 from flask import jsonify
 from flask import render_template
+from flask import send_from_directory
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='')
 
 from nutrichain import eat24
 
@@ -28,3 +29,7 @@ def home():
         'app_display_name': 'Yelp Nutrichain',
     }
     return render_template('home.html', **env)
+
+@app.route('/assets/js/<path>')
+def send_js(path):
+    return send_from_directory('assets/js', path)
