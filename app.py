@@ -33,7 +33,3 @@ def home():
 @app.route('/assets/js/<path>')
 def send_js(path):
     return send_from_directory('assets/js', path)
-
-@app.route('/assets/css/<path>')
-def send_scss(path):
-    return send_from_directory('assets/css', path)
